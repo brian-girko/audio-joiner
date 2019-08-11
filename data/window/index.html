@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Audio Joiner — Merge Audio Files</title>
+  <meta charset="utf-8">
+  <link rel="stylesheet" type="text/css" href="index.css">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+<body>
+  <template id="entry">
+    <div class="entry">
+      <span data-id="drag">⋮</span>
+      <div>
+        <span data-id="msg"></span>
+        <span data-id="name">this is filenamethis is filenamethis is filenamethis is filenamethis is filenamethis is filenamethis is filenamethis is filename</span>
+      </div>
+      <div>
+        <span data-id="warning">This file-type is not supported</span>
+      </div>
+      <span data-id="close" data-command="remove">×</span>
+    </div>
+  </template>
+  <div id="entries"></div>
+
+  <fieldset>
+    <legend>Settings &amp; Join</legend>
+    <div>
+      <label style="overflow: hidden">
+        <input type="checkbox" id="loop">
+        <span style="overflow: hidden; display: inline-block; text-overflow: ellipsis;">Keep Playing</span>
+      </label>
+      <input type="button" id="pause" value="Pause" data-command="pause" disabled="true">
+      <span style="flex: 1"></span>
+      <label class="button"><input type="file" id="files" multiple accept="audio/*|video/*">Add File(s)</label>
+    </div>
+    <div style="display: flex; align-items: center;">
+      <div id="player"></div>
+      <span style="flex: 1"></span>
+      <label title="Set this delay when joining entires. You can set positive or negative values in milliseconds">Delay&nbsp;<input type="number" id="delay" value="0">&nbsp;</label> ms, then
+      <input type="button" id="join" value="Join" disabled="true">
+    </div>
+  </fieldset>
+  <fieldset id="downloads" class="hidden">
+    <legend>Downloads</legend>
+    <template id="download">
+      <form class="download">
+        <audio controls controlsList="nodownload"></audio>
+        &nbsp;
+        <input type="submit" value="">
+      </form>
+    </template>
+  </fieldset>
+  <script type="text/javascript" src="index.js"></script>
+</body>
+</html>
