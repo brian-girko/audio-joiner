@@ -1,34 +1,41 @@
 :root {
-  --bg-dark: rgba(0, 0, 0, 0.05);
+  --bg-dark: #f3f3f3;
+  --bg-darker: #eaeaea;
   --fg-dark: rgba(0, 0, 0, 0.5);
 }
 body {
   display: flex;
   flex-direction: column;
   font-size: 13px;
-  font-family: Arial,"Helvetica Neue",Helvetica,sans-serif;
+  font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
   height: calc(100vh - 20px);
   margin: 10px;
 }
 .button,
 input[type=button] {
   cursor: pointer;
-  padding: 5px 10px;
-  background-color: var(--bg-dark);
+  display: inline-flex;
+  height: 32px;
+  background-color: var(--bg-darker);
   border: none;
-  min-width: 80px;
+  outline: none;
+  min-width: 100px;
   font-size: 11px;
   margin-left: 4px;
   text-align: center;
   justify-content: center;
 }
+input[type=button]:disabled {
+  color: #a0a0a0;
+  text-shadow: 1px 1px #fcffff;
+}
 input[type=number] {
   width: 30px;
-  background-color: var(--bg-dark);
+  background-color: var(--bg-darker);
   border: none;
   outline: none;
   font-size: 11px;
-  padding: 5px 10px;
+  padding: 10px;
 }
 input[type=file] {
   display: none;
@@ -42,13 +49,19 @@ audio {
   height: 30px;
   outline: none;
 }
+#entries-container {
+  display: flex;
+  flex: 1;
+  height: 64px;
+  border: solid 1px var(--bg-darker);
+}
 #entries {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  height: 64px;
   flex: 1;
   overflow: auto;
+  height: 100%;
 }
 
 #entries:empty {
@@ -60,12 +73,13 @@ audio {
   content: 'Click "Add Files", or drop audio files into this view. Reorder if necessary and press the "Join" button to merge';
   text-align: center;
   color: var(--fg-dark);
+  padding: 10px;
 }
 
 .entry {
   display: grid;
   column-gap: 5px;
-  grid-template-columns: 20px auto min-content 20px;
+  grid-template-columns: 20px 1fr minmax(min-content, 80px) 20px;
   grid-template-rows: auto;
   grid-template-areas:
     "drag name audio close"
@@ -82,21 +96,21 @@ audio {
   grid-area: drag;
   user-select: none;
 }
-.entry>:nth-child(2),
-.entry>:nth-child(3) {
+.entry > :nth-child(2),
+.entry > :nth-child(3) {
   display: flex;
   align-items: center;
 }
-.entry>:nth-child(2) {
+.entry > :nth-child(2) {
   grid-area: name;
-  overflow: hidden
+  overflow: hidden;
 }
-.entry>:nth-child(2) [data-id="name"] {
+.entry > :nth-child(2) [data-id="name"] {
   text-overflow: ellipsis;
   overflow: hidden;
   padding: 5px 0;
 }
-.entry>:nth-child(3) {
+.entry > :nth-child(3) {
   grid-area: audio;
   display: flex;
   justify-content: flex-end;
@@ -114,33 +128,43 @@ audio {
 .entry [data-id="msg"]:not(:empty) ~ [data-id="name"] {
   display: none;
 }
-@media screen and (max-width: 600px)  {
+@media screen and (max-width: 600px) {
   .entry {
     grid-template-areas:
       "drag name name close"
       "drag audio audio close";
+  }
+  audio {
+    width: 100%;
+  }
+  #pause {
+    display: none;
   }
 }
 .entry.disabled {
   opacity: 0.8;
 }
 .entry [data-id="warning"] {
-  color: #ff3333;
+  color: #f33;
 }
 
 fieldset {
   min-width: 100px;
-  margin-top: 10px;
   white-space: nowrap;
-  border: solid 1px var(--bg-dark);
+  background-color: var(--bg-dark);
+  border: solid 1px var(--bg-darker);
+  margin: 0;
 }
 fieldset.hidden {
   display: none;
 }
-fieldset>div:first-of-type {
+fieldset > div:first-of-type {
   margin-bottom: 5px;
   display: flex;
   align-items: center;
+}
+legend {
+  padding: 5px;
 }
 
 .download {
@@ -153,7 +177,7 @@ fieldset>div:first-of-type {
 .download input {
   background: url(download.svg) no-repeat center center;
   border: none;
-  margin-left: 10px;
+  margin: 0 20px;
   cursor: pointer;
   outline: none;
 }

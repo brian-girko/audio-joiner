@@ -6,7 +6,6 @@ chrome.browserAction.onClicked.addListener(() => chrome.storage.local.get({
   left: screen.availLeft + Math.round((screen.availWidth - 700) / 2),
   top: screen.availTop + Math.round((screen.availHeight - 500) / 2)
 }, prefs => {
-  console.log(prefs);
   chrome.windows.create({
     url: 'data/window/index.html',
     width: prefs.width,

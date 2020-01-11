@@ -12,7 +12,7 @@
       <span data-id="drag">⋮</span>
       <div>
         <span data-id="msg"></span>
-        <span data-id="name">this is filenamethis is filenamethis is filenamethis is filenamethis is filenamethis is filenamethis is filenamethis is filename</span>
+        <span data-id="name"></span>
       </div>
       <div>
         <span data-id="warning">This file-type is not supported</span>
@@ -20,18 +20,19 @@
       <span data-id="close" data-command="remove">×</span>
     </div>
   </template>
-  <div id="entries"></div>
-
+  <label id="entries-container">
+    <div id="entries"></div>
+  </label>
   <fieldset>
     <legend>Settings &amp; Join</legend>
     <div>
-      <label style="overflow: hidden">
+      <label style="overflow: hidden;" class="button">
         <input type="checkbox" id="loop">
         <span style="overflow: hidden; display: inline-block; text-overflow: ellipsis;">Keep Playing</span>
       </label>
       <input type="button" id="pause" value="Pause" data-command="pause" disabled="true">
       <span style="flex: 1"></span>
-      <label class="button"><input type="file" id="files" multiple accept="audio/*|video/*">Add File(s)</label>
+      <label class="button"><input type="file" id="files" multiple accept="audio/*,video/*">Add File(s)</label>
     </div>
     <div style="display: flex; align-items: center;">
       <div id="player"></div>

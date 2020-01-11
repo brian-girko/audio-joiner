@@ -1,6 +1,6 @@
 {
   "manifest_version": 2,
-  "version": "0.1.0",
+  "version": "0.1.2",
   "name": "Audio Joiner — Merge Audio Files",
   "description": "Join multiple audio tracks into one; suitable to merge DASH files into a single file",
   "permissions": [

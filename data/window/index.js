@@ -16,6 +16,7 @@ document.addEventListener('DOMContentLoaded', () => {
       animation: 150
     });
   };
+  script.onerror = e => console.log(e, script.src);
   script.src = 'libs/Sortable.js';
   document.body.appendChild(script);
 });
@@ -190,7 +191,6 @@ function bufferToWave(abuffer, len) {
     let name = '';
     for (const id of sortable.toArray()) {
       const entry = document.querySelector(`[data-id="${id}"]`);
-      console.log(entry);
       if (!entry || entry.classList.contains('disabled')) {
         continue;
       }
