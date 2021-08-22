@@ -1,0 +1,5 @@
+{
+  "description": {
+    "message": "Extrayez l'audio des fichiers vidéo puis joignez les pistes. Convient pour fusionner des flux DASH ou M3U8 en un seul fichier."
+  }
+}

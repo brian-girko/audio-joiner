@@ -1,0 +1,5 @@
+{
+  "description": {
+    "message": "Extrair áudio de arquivos de vídeo e depois juntar faixas. Adequado para fundir fluxos DASH ou M3U8 em um único arquivo."
+  }
+}

@@ -53,7 +53,16 @@ document.body.addEventListener('drop', e => {
   e.preventDefault();
   append(e.dataTransfer.files);
 });
-document.getElementById('files').addEventListener('change', e => append(e.target.files));
+document.getElementById('entries-container').addEventListener('dblclick', () => {
+  const input = document.createElement('input');
+  input.type = 'file';
+  input.accept = 'audio/*,video/*';
+  input.multiple = true;
+  input.onchange = e => {
+    append(e.target.files);
+  };
+  input.click();
+});
 
 // remove
 document.getElementById('entries').addEventListener('click', e => {
@@ -213,7 +222,7 @@ function bufferToWave(abuffer, len) {
     const context = new AudioContext();
     const buffer = context.createBuffer(
       maxChannels,
-      total * context.sampleRate,
+      Math.ceil(total * context.sampleRate),
       context.sampleRate
     );
     let duration = 0;
@@ -249,3 +258,7 @@ document.getElementById('downloads').addEventListener('submit', e => {
   a.href = audio.src;
   a.click();
 });
+
+document.getElementById('sample').addEventListener('click', () => chrome.tabs.create({
+  url: 'https://webbrowsertools.com/audio-test/'
+}));

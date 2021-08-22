@@ -1,0 +1,5 @@
+{
+  "description": {
+    "message": "Extract audio from video files then join tracks. Suitable to merge DASH or M3U8 streams into a single file."
+  }
+}
