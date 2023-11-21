@@ -4,9 +4,9 @@ chrome.action.onClicked.addListener(async () => {
   const win = await chrome.windows.getCurrent();
 
   chrome.storage.local.get({
-    width: 700,
+    width: 800,
     height: 500,
-    left: win.left + Math.round((win.width - 700) / 2),
+    left: win.left + Math.round((win.width - 800) / 2),
     top: win.top + Math.round((win.height - 500) / 2)
   }, prefs => chrome.windows.create({
     url: '/data/window/index.html',

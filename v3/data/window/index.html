@@ -23,7 +23,7 @@
   <label id="entries-container">
     <div id="entries"></div>
   </label>
-  <fieldset style="padding: 5px 0 0 0;">
+  <fieldset>
     <div id="tools">
       <input type="checkbox" id="loop">
       <label style="overflow: hidden;" class="button" for="loop">
@@ -32,7 +32,11 @@
       <input type="button" id="pause" value="Pause" data-command="pause" disabled="true">
       <input type="button" id="sample" value="Sample">
       <span class="spacer"></span>
-      <label title="Set this delay when joining entires. You can set positive or negative values in milliseconds" class="delay">Delay&nbsp;<input type="number" id="delay" value="0">&nbsp; ms, then</label>
+      <label title="Set this delay when joining entires. You can set positive or negative values in milliseconds" class="delay">
+        <span>Delay</span>
+        <input type="number" id="delay" value="0">
+        <span>ms, then</span>
+      </label>
       <input type="button" id="join" value="Join" disabled="true">
     </div>
   </fieldset>
