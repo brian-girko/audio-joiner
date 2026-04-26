@@ -259,6 +259,13 @@ document.getElementById('downloads').addEventListener('submit', e => {
   a.click();
 });
 
-document.getElementById('sample').addEventListener('click', () => chrome.tabs.create({
-  url: 'https://webbrowsertools.com/audio-test/'
-}));
+const open = async url => {
+  const tab = await chrome.tabs.create({
+    url
+  });
+  chrome.windows.update(tab.windowId, {
+    focused: true
+  });
+};
+document.getElementById('sample').addEventListener('click', () => open('https://webbrowsertools.com/audio-test/'));
+document.getElementById('mp3').addEventListener('click', () => open('https://webbrowsertools.com/convert-to-mp3/'));

@@ -15,27 +15,19 @@ body {
 .button,
 input[type=button] {
   cursor: pointer;
-  display: inline-flex;
-  background-color: var(--bg-darker);
-  border: none;
-  outline: none;
-  min-width: 120px;
-  font-size: 12px;
-  text-align: center;
-  justify-content: center;
+  color: #444;
+  background-image: linear-gradient(rgb(237, 237, 237), rgb(237, 237, 237) 38%, rgb(222, 222, 222));
+  box-shadow: rgba(0, 0, 0, 0.08) 0 1px 0, rgba(255, 255, 255, 0.75) 0 1px 2px inset;
+  text-shadow: rgb(240, 240, 240) 0 1px 0;
+  border: solid 1px rgba(0, 0, 0, 0.25);
+  padding: 5px 10px;
 }
 input[type=button]:disabled {
-  color: #a0a0a0;
-  text-shadow: 1px 1px #fcffff;
-  cursor: default;
+  opacity: 0.5;
 }
 input[type=number] {
   width: 60px;
-  background-color: var(--bg-darker);
-  border: none;
-  outline: none;
-  font-size: 11px;
-  text-indent: 5px;
+  padding: 5px;
 }
 
 @media screen and (max-width: 500px) {
@@ -173,9 +165,6 @@ fieldset.hidden {
 .delay :first-child {
   justify-self: end;
 }
-.delay input {
-  height: 100%;
-}
 .download {
   display: flex;
   margin-bottom: 2px;
@@ -195,11 +184,9 @@ fieldset.hidden {
 }
 #tools {
   display: grid;
-  grid-template-columns: min-content min-content min-content 1fr min-content min-content;
+  grid-template-columns: min-content min-content min-content min-content 1fr min-content min-content;
   grid-gap: 4px;
-}
-#tools > * {
-  min-height: 32px;
+  padding: 0 10px;
 }
 
 @media screen and (max-width: 700px) {
